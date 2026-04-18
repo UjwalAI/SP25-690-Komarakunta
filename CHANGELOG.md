@@ -1,4 +1,11 @@
 # Changelog
+## [Apr 18, 2026] - HOG+SVM Baseline
+### Added
+- HOG feature extraction from GTSRB dataset
+- LinearSVM classifier trained on HOG features
+- Test accuracy: 87.17%, Macro F1: 0.86
+- Worst class: Class 30 Beware ice/snow (F1: 0.53)
+- AI assistance: Claude (Anthropic) used for implementation
 ## [Apr 18, 2026] - Degradation Visualization
 ### Added
 - Revised degradation visualization using clearer sample image (idx:500, Bumpy road)
