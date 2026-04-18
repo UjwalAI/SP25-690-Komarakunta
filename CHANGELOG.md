@@ -1,4 +1,10 @@
 # Changelog
+## [Apr 18, 2026] - Degradation Visualization
+### Added
+- Revised degradation visualization using clearer sample image (idx:500, Bumpy road)
+- Severity levels limited to 1-3 as levels 4-5 are unrealistic for real-world testing
+- Final degradation figure saved to results/figures
+- AI assistance: Claude (Anthropic) used throughout
 ## [Apr 18, 2026]
 ### Added
 - Dataset downloaded: GTSRB via torchvision
