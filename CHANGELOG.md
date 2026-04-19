@@ -1,4 +1,20 @@
 # Changelog
+## [Apr 19, 2026] - ResNet18 Training
+### Added
+- ResNet18 pretrained on ImageNet, fine-tuned on GTSRB at 224x224
+- Three experiments conducted to find optimal configuration
+- Experiment 1: 4 epochs, no dropout → Test Accuracy = 96.83% (best)
+- Experiment 2: 3 epochs, dropout=0.3 → Test Accuracy = 95.80%
+- Experiment 3: 3 epochs, no dropout → Test Accuracy = 96.03%
+- Final ResNet18 Test Accuracy: 96.83%, Macro F1: 0.9253
+- AI assistance: Claude (Anthropic) used for implementation
+
+## [Apr 19, 2026] - Moved to Kaggle
+### Changed
+- Switched from Google Colab to Kaggle for GPU access
+- Kaggle provides 30hrs/week free GPU (T4 x2)
+- All models retrained properly at 224x224 for pretrained models
+
 ## [Apr 18, 2026] - Simple CNN
 ### Added
 - Simple CNN with 3 conv layers trained from scratch
