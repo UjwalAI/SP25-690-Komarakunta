@@ -1,4 +1,52 @@
 # Changelog
+## [Apr 19, 2026] - Baseline Comparison Results
+### Results Summary
+| Model      | Test Accuracy | Macro F1 |
+|------------|---------------|----------|
+| HOG+SVM    | 87.17%        | 0.86     |
+| Simple CNN | 96.62%        | 0.9435   |
+| ResNet18   | 96.83%        | 0.9253   |
+| ViT-Base   | 96.66%        | 0.9173   |
+
+### Key Observations
+- Deep learning models outperform HOG+SVM by ~10%
+- All three deep models perform within 0.21% of each other on clean images
+- Pretrained models (ResNet18, ViT) not significantly better than 
+  Simple CNN from scratch on clean images
+- Real architectural differences expected in robustness evaluation
+- ViT underperforms expectations possibly due to small dataset size
+  and simple geometric nature of traffic signs
+
+### Next Steps
+- Robustness evaluation under blur, noise, brightness, fog
+- Ablation study: with vs without degradation augmentation
+- Failure analysis and confusion matrices
+## [Apr 19, 2026] - ViT Training
+### Added
+- Vision Transformer ViT-Base pretrained on ImageNet-21k, fine-tuned on GTSRB
+- Pretrained weights from HuggingFace (google/vit-base-patch16-224)
+- Image size: 224x224 (required by ViT architecture)
+- Training: 2 epochs (peak performance observed at epoch 2)
+- Val Accuracy: 99.62%, Test Accuracy: 96.66%, Macro F1: 0.9173
+- AI assistance: Claude (Anthropic) used for implementation
+
+## [Apr 19, 2026] - ResNet18 Training
+### Added
+- ResNet18 pretrained on ImageNet, fine-tuned on GTSRB at 224x224
+- Pretrained weights from torchvision (ImageNet1K)
+- Three experiments conducted to find optimal configuration
+- Experiment 1: 4 epochs, no dropout → Test Accuracy = 96.83% (best)
+- Experiment 2: 3 epochs, dropout=0.3 → Test Accuracy = 95.80%
+- Experiment 3: 3 epochs, no dropout → Test Accuracy = 96.03%
+- Final ResNet18 Test Accuracy: 96.83%, Macro F1: 0.9253
+- AI assistance: Claude (Anthropic) used for implementation
+
+## [Apr 19, 2026] - Moved to Kaggle
+### Changed
+- Switched from Google Colab to Kaggle for GPU access
+- Kaggle provides 30hrs/week free GPU (T4 x2)
+- All pretrained models retrained at 224x224 (native resolution)
+- Simple CNN and HOG+SVM kept at 64x64 for consistency
 ## [Apr 19, 2026] - ResNet18 Training
 ### Added
 - ResNet18 pretrained on ImageNet, fine-tuned on GTSRB at 224x224
